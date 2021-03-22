@@ -1,25 +1,23 @@
-#define GDEXAMPLE_H
+#ifndef GDEXAMPLE_H
+#define GDEXAMPLE_HPP
 
 #include <Godot.hpp>
-#include <Sprite.hpp>
+#include <Node.hpp>
 
 namespace godot {
 
-class GDExample : public Sprite {
-    GODOT_CLASS(GDExample, Sprite)
+    class GDExample : public Node {
+        GODOT_CLASS(GDExample, Node)
 
-private:
-    float time_passed;
+    public:
+        static void _register_methods();
 
-public:
-    static void _register_methods();
 
-    GDExample();
-    ~GDExample();
+        void _init(); // our initializer called by Godot
 
-    void _init(); // our initializer called by Godot
-
-    void _process(float delta);
-};
+        String a_method();
+    };
 
 }
+
+#endif  /* GDEXAMPLE_H */

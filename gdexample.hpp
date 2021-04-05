@@ -9,9 +9,7 @@ namespace godot {
     class GDExample : public Node {
         GODOT_CLASS(GDExample, Node)
     private:
-        String _data;
-        float time_passed;
-        float amplitude;
+        float _speed;
 
     public:
         static void _register_methods();
@@ -19,10 +17,10 @@ namespace godot {
 
         void _init(); // our initializer called by Godot
 
-        void set_data(String new_data);
-        String get_data() const;
+        void set_data(float speed);
+        float get_data() const;
 
-        String a_method(float delta);
+        float a_method();
     };
 
 }

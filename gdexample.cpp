@@ -13,13 +13,12 @@ void GDExample::_register_methods() {
     //register_property<GDExample, float>("amplitude", &GDExample::amplitude, 10.0);  
 
     //register_property<GDExample, float>("amplitude", &GDExample::amplitude, 10.0);
-    register_property<GDExample, float>("speed", &GDExample::set_data, &GDExample::get_data, 1.0);
+    register_property<GDExample, float>("BrakePower", &GDExample::set_brake, &GDExample::get_breake, 12000.0);
+    register_property<GDExample, float>("EBrakePower", &GDExample::set_ebrake, &GDExample::get_ebreake, 5000.0);
 
 }
 
 void GDExample::_init() {
-
-    float _speed = 0.0;
 
     /*
     time_passed = 0.0; //
@@ -27,11 +26,17 @@ void GDExample::_init() {
     */
 }
 
-void GDExample::set_data(float speed) {
-    _speed = speed;
+void GDExample::set_brake(float _brakePower) {
+    BrakePower = _brakePower;
 }
-float GDExample::get_data() const {
-    return _speed;
+float GDExample::get_breake() const {
+    return BrakePower ;
+}
+void GDExample::set_ebrake(float _ebrakePower) {
+    EBrakePower = _ebrakePower;
+}
+float GDExample::get_ebreake() const {
+    return EBrakePower;
 }
 /*
 String GDExample::a_method() {
@@ -51,6 +56,5 @@ float GDExample::a_method() {
     );
 
     */
-    _speed = _speed + 1;
-    return _speed;
+       return EBrakePower ;
 }

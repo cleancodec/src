@@ -8,23 +8,12 @@ void GDExample::_register_methods() {
 
 
     register_method("a_method", &GDExample::a_method);
+    register_method("change_throttle", &GDExample::change_throttle);
 
-    //register_property<GDExample, String>("data", &GDExample::_data, String("Hello World"));
-    //register_property<GDExample, float>("amplitude", &GDExample::amplitude, 10.0);  
-
-    //register_property<GDExample, float>("amplitude", &GDExample::amplitude, 10.0);
     register_property<GDExample, float>("BrakePower", &GDExample::set_brake, &GDExample::get_breake, 12000.0);
     register_property<GDExample, float>("EBrakePower", &GDExample::set_ebrake, &GDExample::get_ebreake, 5000.0);
-
 }
 
-void GDExample::_init() {
-
-    /*
-    time_passed = 0.0; //
-    amplitude = 10.0;   //
-    */
-}
 
 void GDExample::set_brake(float _brakePower) {
     BrakePower = _brakePower;
@@ -38,12 +27,23 @@ void GDExample::set_ebrake(float _ebrakePower) {
 float GDExample::get_ebreake() const {
     return EBrakePower;
 }
-/*
-String GDExample::a_method() {
 
-    return _data;
+
+void GDExample::_init() {
+
+    Velocity = 0.0;
+    AbsoluteVelocity = 0;
+    InertiaScale = 1.0;
+
+    Inertia = mass * InertiaScale;
+
+   
+
 }
-*/
+String GDExample::change_throttle(float _value) {
+    Throttle = _value;
+    return "throttle changed";
+}
 
 float GDExample::a_method() {
 

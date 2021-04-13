@@ -12,8 +12,7 @@ namespace godot {
         GODOT_CLASS(GDExample, Node)
     private:
     
-        real_t engine_force = 0.0;
-        real_t brake_force = 0.0;
+        real_t _angle = 0.0;
 
     public:
         static void _register_methods();
@@ -21,8 +20,8 @@ namespace godot {
 
         void _init(); // our initializer called by Godot
 
-        float accelerate(float _value);
-        float decelerate(float _value);
+        float right(float _value);
+        float left(float _value);
 
         float a_method();
     };
